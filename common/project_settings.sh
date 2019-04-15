@@ -21,7 +21,7 @@ ORGANIZATION="find-seller"
 
 # This is the Storage bucket used for public assets. 
 # The entire bucket is public by default
-PUBLIC_ASSETS="fs-dev-public-bucket"
+PUBLIC_ASSETS="fs-dev-cloud-public-bucket"
 
 # This is the Storage bucket used for private assets. 
 # The entire bucket is private by default
