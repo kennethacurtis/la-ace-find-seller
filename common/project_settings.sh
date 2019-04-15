@@ -25,7 +25,7 @@ PUBLIC_ASSETS="fs-dev-public-bucket"
 
 # This is the Storage bucket used for private assets. 
 # The entire bucket is private by default
-PRIVATE_ASSETS="fs-dev-private-bucket"
+PRIVATE_ASSETS="fs-dev-cloud-private-bucket"
 
 # The name of the Pubsub topic to create / use
 PUB_SUB_TOPIC="fs-dev-items"
