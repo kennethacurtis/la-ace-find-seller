@@ -27,9 +27,9 @@ source ../../common/project_settings.sh
 #     $SERVICE_ACCOUNT_NAME \
 #     --display-name $SERVICE_ACCOUNT_NAME
 
-# SA_EMAIL=$(gcloud iam service-accounts list \
-#     --filter="displayName:$SERVICE_ACCOUNT_NAME" \
-#     --format='value(email)')
+SA_EMAIL=$(gcloud iam service-accounts list \
+    --filter="displayName:$SERVICE_ACCOUNT_NAME" \
+    --format='value(email)')
 
 # gcloud projects add-iam-policy-binding $PROJECT_NAME \
 #     --role roles/bigtable.user \
