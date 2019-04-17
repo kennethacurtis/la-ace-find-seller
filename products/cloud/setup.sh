@@ -14,40 +14,40 @@ set -e
 # Import the settings from the common settings file
 source ../../common/project_settings.sh
 
-# This section of code is modified from the code found here:
-# https://www.spinnaker.io/setup/install/providers/appengine/
+# # This section of code is modified from the code found here:
+# # https://www.spinnaker.io/setup/install/providers/appengine/
 
-# Ensure the secrets dir exists
-mkdir -p ../app/secrets
-# Create a new role for the app. 
-SERVICE_ACCOUNT_NAME=product-service
-SERVICE_ACCOUNT_DEST=../app/secrets/service_account.json
+# # Ensure the secrets dir exists
+# mkdir -p ../app/secrets
+# # Create a new role for the app. 
+# SERVICE_ACCOUNT_NAME=product-service
+# SERVICE_ACCOUNT_DEST=../app/secrets/service_account.json
 
-gcloud iam service-accounts create \
-    $SERVICE_ACCOUNT_NAME \
-    --display-name $SERVICE_ACCOUNT_NAME
+# gcloud iam service-accounts create \
+#     $SERVICE_ACCOUNT_NAME \
+#     --display-name $SERVICE_ACCOUNT_NAME
 
-SA_EMAIL=$(gcloud iam service-accounts list \
-    --filter="displayName:$SERVICE_ACCOUNT_NAME" \
-    --format='value(email)')
+# SA_EMAIL=$(gcloud iam service-accounts list \
+#     --filter="displayName:$SERVICE_ACCOUNT_NAME" \
+#     --format='value(email)')
 
-gcloud projects add-iam-policy-binding $PROJECT_NAME \
-    --role roles/bigtable.user \
-    --member serviceAccount:$SA_EMAIL
+# gcloud projects add-iam-policy-binding $PROJECT_NAME \
+#     --role roles/bigtable.user \
+#     --member serviceAccount:$SA_EMAIL
 
-gcloud projects add-iam-policy-binding $PROJECT_NAME \
-    --role roles/storage.objectAdmin \
-    --member serviceAccount:$SA_EMAIL
+# gcloud projects add-iam-policy-binding $PROJECT_NAME \
+#     --role roles/storage.objectAdmin \
+#     --member serviceAccount:$SA_EMAIL
 
-gcloud projects add-iam-policy-binding $PROJECT_NAME \
-    --role roles/bigquery.dataViewer \
-    --member serviceAccount:$SA_EMAIL
+# gcloud projects add-iam-policy-binding $PROJECT_NAME \
+#     --role roles/bigquery.dataViewer \
+#     --member serviceAccount:$SA_EMAIL
 
-gcloud projects add-iam-policy-binding $PROJECT_NAME \
-    --role roles/bigquery.jobUser \
-    --member serviceAccount:$SA_EMAIL
+# gcloud projects add-iam-policy-binding $PROJECT_NAME \
+#     --role roles/bigquery.jobUser \
+#     --member serviceAccount:$SA_EMAIL
 
-gcloud iam service-accounts keys create $SERVICE_ACCOUNT_DEST --iam-account $SA_EMAIL
+# gcloud iam service-accounts keys create $SERVICE_ACCOUNT_DEST --iam-account $SA_EMAIL
 
 echo "##############################################################################"
 echo "Service account created and key stored in the products/app/secrets dir with the name $SERVICE_ACCOUNT_NAME"
