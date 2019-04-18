@@ -20,12 +20,12 @@ source ../../common/project_settings.sh
 # # Ensure the secrets dir exists
 # mkdir -p ../app/secrets
 # # Create a new role for the app. 
-# SERVICE_ACCOUNT_NAME=product-service
-# SERVICE_ACCOUNT_DEST=../app/secrets/service_account.json
+SERVICE_ACCOUNT_NAME=product-service
+SERVICE_ACCOUNT_DEST=../app/secrets/service_account.json
 
-# gcloud iam service-accounts create \
-#     $SERVICE_ACCOUNT_NAME \
-#     --display-name $SERVICE_ACCOUNT_NAME
+gcloud iam service-accounts create \
+    $SERVICE_ACCOUNT_NAME \
+    --display-name $SERVICE_ACCOUNT_NAME
 
 SA_EMAIL=$(gcloud iam service-accounts list \
     --filter="displayName:$SERVICE_ACCOUNT_NAME" \
