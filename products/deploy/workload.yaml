@@ -11,8 +11,8 @@ data:
   # It mounts the secret to that path.
   # The secret is created in the deploy.sh file for this service
   SERVICE_ACCOUNT_FILE_NAME: "/sa/service_account.json" 
-  PROJECT_ID: ""
-  PRODUCT_CACHE_BUCKET: ""
+  PROJECT_ID: "proven-solstice-236218"
+  PRODUCT_CACHE_BUCKET: "fs-dev-cloud-public-bucket"
 ---
 apiVersion: "extensions/v1beta1"
 kind: "Deployment"
@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: "products"
-        image: "gcr.io//products:latest"
+        image: "gcr.io/proven-solstice-236218/products:latest"
         volumeMounts:
         - name: service-account
           mountPath: "/sa/"
