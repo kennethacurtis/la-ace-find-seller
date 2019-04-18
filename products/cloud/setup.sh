@@ -23,9 +23,9 @@ source ../../common/project_settings.sh
 SERVICE_ACCOUNT_NAME=product-service
 SERVICE_ACCOUNT_DEST=../app/secrets/service_account.json
 
-gcloud iam service-accounts create \
-    $SERVICE_ACCOUNT_NAME \
-    --display-name $SERVICE_ACCOUNT_NAME
+# gcloud iam service-accounts create \
+#     $SERVICE_ACCOUNT_NAME \
+#     --display-name $SERVICE_ACCOUNT_NAME
 
 SA_EMAIL=$(gcloud iam service-accounts list \
     --filter="displayName:$SERVICE_ACCOUNT_NAME" \
